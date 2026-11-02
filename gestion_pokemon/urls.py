@@ -1,0 +1,23 @@
+from django.urls import path
+from .views import lista_pokemones, crear_pokemon, eliminar_pokemon, editar_pokemon, detalle_pokemon, crear_entrenador, editar_entrenador, eliminar_entrenador, detalle_entrenador, crear_gimnasio, detalle_gimnasio, editar_gimnasio, eliminar_gimnasio
+
+app_name = 'gestion_pokemon'
+
+urlpatterns = [
+    path('', lista_pokemones, name='lista_pokemones'),
+    path('crear/', crear_pokemon, name='crear_pokemon'),
+    path('eliminar/<int:pokemon_id>/', eliminar_pokemon, name='eliminar_pokemon'),
+    path('editar/<int:pokemon_id>/', editar_pokemon, name='editar_pokemon'),
+    path('pokemon/<int:pokemon_id>/', detalle_pokemon, name='detalle_pokemon'),
+
+    # Ruta para registrar entrenador en otra página
+    path('entrenador/crear/', crear_entrenador, name='crear_entrenador'),
+    path('entrenador/editar/<str:pk>/', editar_entrenador, name='editar_entrenador'),
+    path('entrenador/eliminar/<str:pk>/', eliminar_entrenador, name='eliminar_entrenador'),
+    path('entrenador/<str:pk>/', detalle_entrenador, name='detalle_entrenador'),
+
+    path('gimnasio/crear/', crear_gimnasio, name='crear_gimnasio'),
+    path('gimnasio/<int:pk>/', detalle_gimnasio, name='detalle_gimnasio'),
+    path('gimnasio/editar/<int:pk>/', editar_gimnasio, name='editar_gimnasio'),
+    path('gimnasio/eliminar/<int:pk>/', eliminar_gimnasio, name='eliminar_gimnasio'),
+]
